@@ -52,6 +52,11 @@
                                 <span class="sub-item labels">Data Kelulusan Kelas 12</span>
                             </a>
                         </li>
+                        <li class="{{ set_active('skl.index') }}">
+                            <a href="{{ route('skl.index') }}">
+                                <span class="sub-item labels">SKL Kelas 12</span>
+                            </a>
+                        </li>
                     @endcan
                 </ul>
             </div>

@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title>Samawa</title>
+    <title>SMKN 1 SINGKEP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 
 <style>
@@ -10,7 +12,7 @@
         margin: 0;
         padding: 0;
         font-family: sans-serif;
-        background: #262626;
+        background: #ffd7a3;
     }
 
     .box {
@@ -20,7 +22,7 @@
         transform: translate(-50%, -50%);
         width: 600px;
         height: 400px;
-        background: #001e2d;
+        background-image: radial-gradient(circle at 46.54% 89.52%, #a5e8ff 0, #89dbff 25%, #6acdff 50%, #44bffa 75%, #00b1f6 100%);
         box-sizing: border-box;
         box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
         border: 2px solid rgba(0, 0, 0, .5);
@@ -65,16 +67,16 @@
     }
 
     .about {
-        padding: 40px;
+        padding: 20px;
         color: #fff;
         text-align: center;
         position: absolute;
-        top: 50%;
+        top: 30%;
         transform: translateY(-50%);
     }
 
     .about h2 {
-        margin: 0;
+        margin-top: -70px;
         padding: 0;
         font-size: 30px;
         text-transform: uppercase;
@@ -126,7 +128,8 @@
         </svg>
         <div class="about">
             <h2>SMKN 1 SINGKEP</h2>
-            <p>Hasil Kelulusan Kelas 12 TP. 2022/2023</p><hr>
+            <p>Hasil Kelulusan Kelas 12 TP. 2022/2023</p>
+            <hr>
             <p>{{ auth()->user()->name }}</p>
             <p>
                 @if ($data == null)
@@ -150,7 +153,8 @@
                 @endif
             </p>
             <br>
-            <p>#Created By. Dian Pratama, S.Pd</p>
+            <a href="" class="btn btn-primary">UNDUH SURAT KETERANGAN LULUS</a>
+            <p class="mt-3">#Created By. Dian Pratama, S.Pd</p>
         </div>
         <div class="figure"></div>
     </div>

@@ -129,6 +129,12 @@
                                         value="{{ old('no_induk', $user->no_induk) }}" />
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <!-- level -->
+                                <div class="form-group">
+                                    <img src="{{ asset('storage/foto-user/' . $item->foto) }}" width="100px">
+                                </div>
+                            </div>
                         </div>
                         <div class="text-center">
                             <a class="btn btn-xs btn-warning px-3" href="{{ route('users.index') }}">

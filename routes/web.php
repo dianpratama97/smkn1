@@ -32,6 +32,7 @@ use App\Http\Controllers\JurusanBlogController;
 use App\Http\Controllers\KepegawaianController;
 use App\Http\Controllers\AkademikBlogController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\SklController;
 use App\Http\Controllers\VideoController;
 
 // Route::get('/', function () {
@@ -131,11 +132,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/siswa/kelas12_tbsm', [SiswaController::class, 'kelas12_tbsm'])->name('siswa12.tbsm');
 
     Route::resource('siswa', SiswaController::class);
-   
+
     //mapel
     Route::resource('/mapel', MapelController::class);
     Route::post('/mapel/import', [MapelController::class, 'import'])->name('mapel.import');
-    
+
 
     //tugas dari guru
     Route::get('/tugas/indexGuru', [TugasController::class, 'indexGuru'])->name('tugas.indexGuru');
@@ -161,6 +162,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/kelulusan', KelulusanController::class);
     Route::post('/kelulusan/import', [KelulusanController::class, 'import'])->name('kelulusan.import');
     Route::get('/kelulusan/hasil/{nisn}', [KelulusanController::class, 'status_lulus']);
+
+    Route::resource('/skl', SklController::class);
+    Route::post('multipleusersdelete', [SklController::class, 'deleteAll']);
 
     Route::resource('/gallery', GalleryController::class);
     Route::resource('/video', VideoController::class);

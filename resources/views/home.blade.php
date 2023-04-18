@@ -31,35 +31,21 @@
                         <div class="job">{{ auth()->user()->level }}</div>
                         <div class="job">{{ auth()->user()->jurusan }}</div>
 
-                        @if (auth()->user()->level != 'SuperAdmin' && auth()->user()->level != 'Guru')
+                        @if (auth()->user()->no_induk != null)
                             <div class="desc">
-                                @if (auth()->user()->status == 0)
-                                    <span class="badge badge-warning">Lengkapi Data Pendaftaran</span>
-                                @elseif(auth()->user()->status == 1)
-                                    <span class="badge badge-primary">Data Sedang di Verifikasi. Silakan Menunggu...</span>
-                                @elseif(auth()->user()->status == 2)
-                                    <span class="badge badge-success">Selamat Anda Lulus. Silakan Daftar Ulang</span>
-                                @elseif(auth()->user()->status == 3)
-                                    <span class="badge badge-success">Siswa SMK Negeri 1 Singkep</span>
-                                @elseif(auth()->user()->status == 98)
-                                    <span class="badge badge-warning">Maaf. Silakan Perbaiki Berkas Anda.</span>
-                                @elseif(auth()->user()->status == 99)
-                                    <span class="badge badge-warning">Maaf. Anda Belum Bisa Lulus.</span>
-                                @endif
+                                <span class="badge badge-danger">Lengkapi Biodata</span>
                             </div>
-                        @endif
-                        @if (auth()->user()->status == 2)
-                            <div class="view-profile">
-                                <a href="/ppdb/daftarUlang/{{ auth()->user()->id }}"
-                                    class="btn btn-secondary btn-sm btn-block">Daftar Ulang</a>
+                        @else
+                            <div class="desc">
+                                <span class="badge badge-success">Biodata Lengkap</span>
                             </div>
                         @endif
                     </div>
 
                     <div>
-                        @if (setting()->ppdb == 1)
+                        @if (setting()->status_kelulusan == 1)
                             <a href="kelulusan/hasil/{{ auth()->user()->username }}"
-                                class="btn btn-xs btn-block btn-danger">Cek
+                                class="btn btn-xs btn-block btn-warning">Cek
                                 Kelulusan</a>
                         @else
                             <span class="badge badge-primary text-center mb-1 d-flex justify-content-center">Mohon Tunggu
@@ -68,14 +54,15 @@
 
 
                         <a href="/kartu-pelajar/{{ auth()->user()->id }}" target="_blank"
-                            class="btn btn-xs btn-block button"
+                            class="btn btn-xs mt-3 btn-block button"
                             style="background-color: rgb(13, 248, 13); color: rgb(255, 255, 255);"><b>CETAK KARTU
                                 PELAJAR</b></a>
 
-                        <a href="/myProfile/{{ auth()->user()->id }}" class="btn btn-xs btn-block btn-primary">PROFILE</a>
+                        <a href="/myProfile/{{ auth()->user()->id }}"
+                            class="btn btn-xs mt-3 btn-block btn-primary">BIODATA</a>
 
                         <a href="/myProfile/ganti-password/{{ auth()->user()->id }}"
-                            class="btn btn-xs btn-block btn-secondary">Ganti Password</a>
+                            class="btn btn-xs mt-3 btn-block btn-secondary">Ganti Password</a>
 
                     </div>
                 </div>

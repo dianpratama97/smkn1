@@ -54,11 +54,12 @@
                             <thead class="text-center">
                                 <tr>
                                     <th width="5%">NO</th>
-                                    <th width="25%">NAME</th>
+                                    <th width="20%">NAME</th>
+                                    <th width="10%">KELAS</th>
                                     <th width="15%">EMAIL</th>
-                                    <th width="15%">Aktif Role</th>
                                     <th width="25%">EDIT LEVEL</th>
                                     <th width="15%">AKSI</th>
+                                    <th width="10%">FOTO</th>
                                 </tr>
                             </thead>
 
@@ -68,14 +69,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
+                                        <td>{{ $item->kelas }} - {{ $item->jurusan }}</td>
                                         <td>{{ $item->email }}</td>
-                                        <td>
-                                            @if ($item->status_role == 1)
-                                                <span class="badge badge-info">aktif</span>
-                                            @else
-                                                <span class="badge badge-danger">tidak</span>
-                                            @endif
-                                        </td>
                                         <td class="text-center">
                                             @if ($item->status_role == 1)
                                             @else
@@ -123,6 +118,13 @@
                                                     </button>
                                                 </form>
                                             @endcan
+                                        </td>
+                                        <td>
+                                            @if ($item->foto != null)
+                                                <img src="{{ asset('storage/foto-user/' . $item->foto) }}" width="50px">
+                                            @else
+                                                <span class="badge badge-danger">BELUM ISI BIODATA</span>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
