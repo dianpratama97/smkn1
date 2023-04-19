@@ -83,9 +83,7 @@ class KelulusanController extends Controller
     public function status_lulus($nisn)
     {
         $data = Kelulusan::where('nisn', $nisn)->first();
-
+       
         return view('akademik.master_data.kelulusan.hasil', compact('data'));
     }
-
-    
 }

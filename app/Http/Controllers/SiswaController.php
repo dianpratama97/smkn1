@@ -25,7 +25,32 @@ class SiswaController extends Controller
         $kelas10 = User::where('kelas', 10)->count();
         $kelas11 = User::where('kelas', 11)->count();
         $kelas12 = User::where('kelas', 12)->count();
-        return view('akademik.data_pengguna.siswa.index', compact('kelas10', 'kelas11', 'kelas12'));
+
+
+        //10
+        $jumlah_siswa_Bio_kelas10 = User::where('kelas', 10)->whereNotNull('no_induk')->count();
+        $jumlah_siswa_notBio_kelas10 = $kelas10 - $jumlah_siswa_Bio_kelas10;
+
+        $biodata_kelas10 =  ($jumlah_siswa_Bio_kelas10 / $kelas10) * 100;
+        $biodata_belum_kelas10 =  ($jumlah_siswa_notBio_kelas10 / $kelas10) * 100;
+
+        //11
+        $jumlah_siswa_Bio_kelas11 = User::where('kelas', 11)->whereNotNull('no_induk')->count();
+        $jumlah_siswa_notBio_kelas11 = $kelas11 - $jumlah_siswa_Bio_kelas11;
+
+        $biodata_kelas11 =  ($jumlah_siswa_Bio_kelas11 / $kelas11) * 100;
+        $biodata_belum_kelas11 =  ($jumlah_siswa_notBio_kelas11 / $kelas11) * 100;
+
+        //12
+        $jumlah_siswa_Bio_kelas12 = User::where('kelas', 12)->whereNotNull('no_induk')->count();
+        $jumlah_siswa_notBio_kelas12 = $kelas12 - $jumlah_siswa_Bio_kelas12;
+
+        $biodata_kelas12 =  ($jumlah_siswa_Bio_kelas12 / $kelas12) * 100;
+        $biodata_belum_kelas12 =  ($jumlah_siswa_notBio_kelas12 / $kelas12) * 100;
+
+
+
+        return view('akademik.data_pengguna.siswa.index', compact('kelas10', 'kelas11', 'kelas12', 'biodata_kelas10', 'biodata_kelas11', 'biodata_kelas12', 'biodata_belum_kelas10', 'biodata_belum_kelas11', 'biodata_belum_kelas12'));
     }
 
     public function store(Request $request)

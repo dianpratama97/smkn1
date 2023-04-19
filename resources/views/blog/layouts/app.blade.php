@@ -37,6 +37,10 @@
     @include('blog.panel.akademik')
     <!-- akademik -->
 
+    <!-- akademik -->
+    @include('blog.panel.dataSiswa')
+    <!-- akademik -->
+
     <!-- Footer Start -->
     @include('blog.panel.footer')
     <!-- Footer End -->

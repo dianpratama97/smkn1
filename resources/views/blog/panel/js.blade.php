@@ -24,3 +24,7 @@
         $('#data-alumni').DataTable({});
     });
 </script>
+
+@stack('js')
+@stack('js-internal')
+

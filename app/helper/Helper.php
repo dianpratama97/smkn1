@@ -91,3 +91,19 @@ function dataJurusan()
 {
   return JurusanBlog::get();
 }
+
+function jumlah_siswa_kelas10()
+{
+  return  User::where('kelas', 10)->count();
+}
+
+function jumlah_siswa_kelas11()
+{
+  return User::where('kelas', 11)->count();
+}
+
+function jumlah_siswa_kelas12()
+{
+  return User::where('kelas', 12)->count();
+}
+

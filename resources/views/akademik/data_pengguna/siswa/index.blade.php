@@ -69,14 +69,19 @@
 
 
     <div class="row">
-        <div class="col-md-4">
-            <div id="kelas10"></div>
+        <div class="col-md-12">
+            <div id="jumlah_siswa"></div>
         </div>
-        <div class="col-md-4">
-            <div id="kelas11"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mt-4">
+            <div id="bio10"></div>
         </div>
-        <div class="col-md-4">
-            <div id="kelas12"></div>
+        <div class="col-md-4 mt-4">
+            <div id="bio11"></div>
+        </div>
+        <div class="col-md-4 mt-4">
+            <div id="bio12"></div>
         </div>
     </div>
 @endsection
@@ -87,92 +92,151 @@
 
 @push('js-internal')
     <script>
-        Highcharts.chart('kelas10', {
+        //10
+        Highcharts.chart('bio10', {
             chart: {
-                type: 'column'
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
             },
             title: {
-                text: 'Jumlah Siswa kelas 10'
-            },
-            xAxis: {
-                categories: [
-                    'Siswa'
-                ],
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Jumlah Siswa Kelas 10'
-                }
+                text: 'BIODATA SISWA KELAS 10',
+                align: 'left'
             },
             tooltip: {
-                headerFormat: '<span style="font-size:10px">Jumlah Siswa</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.f} Siswa</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
             },
             plotOptions: {
-                column: {
-                    pointPadding: 0.4,
-                    borderWidth: 0
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
                 }
             },
             series: [{
-                name: 'Kelas 10',
-                data: [{{ $kelas10 }}]
-
-            }, ]
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'BIODATA SUDAH LENGKAP',
+                    y: {{ $biodata_kelas10 }},
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'BIODATA BELUM LENGKAP',
+                    y: {{ $biodata_belum_kelas10 }}
+                }, ]
+            }]
         });
 
-        Highcharts.chart('kelas11', {
+        //11
+        Highcharts.chart('bio11', {
             chart: {
-                type: 'column'
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
             },
             title: {
-                text: 'Jumlah Siswa Kelas 11'
-            },
-            xAxis: {
-                categories: [
-                    'Siswa'
-                ],
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Jumlah Siswa Kelas 11'
-                }
+                text: 'BIODATA SISWA KELAS 11',
+                align: 'left'
             },
             tooltip: {
-                headerFormat: '<span style="font-size:10px">Jumlah Siswa</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.f} Siswa</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
             },
             plotOptions: {
-                column: {
-                    pointPadding: 0.4,
-                    borderWidth: 0
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
                 }
             },
             series: [{
-                name: 'Kelas 11',
-                data: [{{ $kelas11 }}]
-
-            }, ]
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'BIODATA SUDAH LENGKAP',
+                    y: {{ $biodata_kelas11 }},
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'BIODATA BELUM LENGKAP',
+                    y: {{ $biodata_belum_kelas11 }}
+                }, ]
+            }]
         });
 
-        Highcharts.chart('kelas12', {
+        // 12
+        Highcharts.chart('bio12', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'BIODATA SISWA KELAS 12',
+                align: 'left'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'BIODATA SUDAH LENGKAP',
+                    y: {{ $biodata_kelas12 }},
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'BIODATA BELUM LENGKAP',
+                    y: {{ $biodata_belum_kelas12 }}
+                }, ]
+            }]
+        });
+    </script>
+
+
+
+    <script>
+        Highcharts.chart('jumlah_siswa', {
             chart: {
                 type: 'column'
             },
             title: {
-                text: 'Jumlah Siswa Kelas 12'
+                text: 'Jumlah Siswa SMKN 1 Singkep'
             },
             xAxis: {
                 categories: [
@@ -183,13 +247,13 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Jumlah Siswa Kelas 12'
+                    text: 'Jumlah Siswa SMKN 1 Singkep'
                 }
             },
             tooltip: {
                 headerFormat: '<span style="font-size:10px">Jumlah Siswa</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.f} Siswa</b></td></tr>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
+                    '<td style="padding:0"><b> {point.y:.f} Siswa</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true
@@ -201,10 +265,21 @@
                 }
             },
             series: [{
-                name: 'Kelas 12',
-                data: [{{ $kelas12 }}]
+                    name: 'Kelas 10',
+                    data: [{{ $kelas10 }}]
 
-            }, ]
+                },
+                {
+                    name: 'Kelas 11',
+                    data: [{{ $kelas11 }}]
+
+                },
+                {
+                    name: 'Kelas 12',
+                    data: [{{ $kelas12 }}]
+
+                },
+            ]
         });
     </script>
 @endpush

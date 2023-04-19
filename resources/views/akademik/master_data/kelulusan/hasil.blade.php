@@ -12,7 +12,7 @@
         margin: 0;
         padding: 0;
         font-family: sans-serif;
-        background: #ffd7a3;
+        background: #025f8a;
     }
 
     .box {
@@ -127,8 +127,10 @@
             <rect></rect>
         </svg>
         <div class="about">
-            <h2>SMKN 1 SINGKEP</h2>
-            <p>Hasil Kelulusan Kelas 12 TP. 2022/2023</p>
+            <b>
+                <h2>SMKN 1 SINGKEP</h2>
+                <p>Hasil Kelulusan Kelas 12 TP. 2022/2023</p>
+            </b>
             <hr>
             <p>{{ auth()->user()->name }}</p>
             <p>
@@ -136,25 +138,24 @@
                     "Oops.."
                 @else
                     @if ($data->status == 1)
-                        <div style="background-color: rgb(2, 150, 249); border-radius: 10px; padding: 10px">
-                            SELAMAT KAMU
-                            LULUS
+                        <div
+                            style="background-color: rgb(36, 3, 128); border-radius: 10px; padding: 10px; box-shadow: 5px 5px 18px rgb(0, 0, 0);">
+                            SELAMAT KAMU LULUS
                         </div>
+                        <a href="{{ asset('storage/file-skl/' . auth()->user()->username) }}.pdf"
+                            class="btn btn-primary mt-4">UNDUH SURAT KETERANGAN LULUS</a>
                     @elseif($data->status == 0)
                         <div style="background-color: rgb(189, 243, 11); border-radius: 10px; padding: 10px">
-                            <h4>DATA KAMU BELUM
-                                DIMASUKAN</h4>
+                            <h4>DATA KAMU BELUM DIMASUKAN</h4>
                         </div>
                     @else
                         <div style="background-color: rgb(231, 14, 14); border-radius: 10px; padding: 10px">
-                            KAMU TIDAK
-                            LULUS</div>
+                            KAMU TIDAK LULUS</div>
                     @endif
                 @endif
             </p>
             <br>
-            <a href="" class="btn btn-primary">UNDUH SURAT KETERANGAN LULUS</a>
-            <p class="mt-3">#Created By. Dian Pratama, S.Pd</p>
+            <b><p class="mt-3 text-dark">#Created By. Dian Pratama, S.Pd</p></b>
         </div>
         <div class="figure"></div>
     </div>

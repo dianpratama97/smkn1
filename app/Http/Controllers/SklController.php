@@ -23,7 +23,6 @@ class SklController extends Controller
         foreach ($request->dir as $file) {
 
             $filename = $file->getClientOriginalName();
-            $filesize = $file->getSize();
             $file->storeAs('file-skl/', $filename);
             $fileModel = new Skl;
             $fileModel->dir = 'file-skl/' . $filename;

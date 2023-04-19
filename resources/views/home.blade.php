@@ -33,11 +33,11 @@
 
                         @if (auth()->user()->no_induk != null)
                             <div class="desc">
-                                <span class="badge badge-danger">Lengkapi Biodata</span>
+                                <span class="badge badge-success">Biodata Lengkap</span>
                             </div>
                         @else
                             <div class="desc">
-                                <span class="badge badge-success">Biodata Lengkap</span>
+                                <span class="badge badge-danger">Lengkapi Biodata</span>
                             </div>
                         @endif
                     </div>
@@ -67,13 +67,6 @@
                     </div>
                 </div>
             </div>
-            @if (auth()->user()->status == 98)
-                <div class="alert alert-info">
-                    <h5><b class="text-danger">*</b> Catatan:</h5><br>
-                    Dokumen yang di upload tidak sesuai. Silakan perbaiki
-                </div>
-            @endif
-
         </div>
 
 
